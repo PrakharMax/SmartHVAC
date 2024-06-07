@@ -1,0 +1,678 @@
+[
+    {
+        "id": "990ff4862a79b3b1",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d30597ef8bd22079",
+        "type": "function",
+        "z": "990ff4862a79b3b1",
+        "name": "Extract Token from Response",
+        "func": "if (!msg.payload.hasOwnProperty(\"result\")){\n    node.warn(\"failed timed access token reqest\");\n    node.warn(msg);\n    return;\n}\n\nvar data = msg.payload;\n\nvar access = data.result.access_token;\nvar refresh = data.result.refresh_token;\nvar expire = data.result.expire_time;\nglobal.set(\"tuya_expire\",expire);\nvar creds ={\n \"access_token\" : access,\n \"refresh_token\" : refresh\n}\nglobal.set(\"tuya\", creds); \nmsg.payload = data.result;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 120,
+        "wires": [
+            [
+                "60538467a3938852"
+            ]
+        ]
+    },
+    {
+        "id": "ac7d9f9e6e2e7705",
+        "type": "function",
+        "z": "990ff4862a79b3b1",
+        "name": "SetTuyaDetails",
+        "func": "global.set(\"tuya_secret_key\", \"b5c938088f72413d8ef147599a633659\");\nglobal.set(\"tuya_client_id\", \"dfxhjn3ekg544qausfsx\");\nglobal.set(\"tuya_device_id\", \"bfa96f6e6fc391e72faovq\");\nglobal.set(\"DeviceId_Master\",\"34:85:18:03:50:10\");\nglobal.set(\"DeviceId_slave_1\",\"34:85:18:06:4E:48\");\nglobal.set(\"DeviceId_slave_2\",\"34:85:18:07:B9:9C\");\nglobal.set(\"DeviceId_Client1\",msg.payload);\nmsg.secretKey=global.get(\"tuya_secret_key\");\nmsg.clientKey  = global.get(\"tuya_client_id\");\n//msg.host = \"https://openapi.tuyaeu.com\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 120,
+        "wires": [
+            [
+                "4f193722534b4d9a"
+            ]
+        ]
+    },
+    {
+        "id": "4f193722534b4d9a",
+        "type": "tuya_auth",
+        "z": "990ff4862a79b3b1",
+        "name": "",
+        "topic": "",
+        "host": "https://openapi.tuyaeu.com",
+        "x": 520,
+        "y": 120,
+        "wires": [
+            [
+                "d30597ef8bd22079"
+            ]
+        ]
+    },
+    {
+        "id": "60538467a3938852",
+        "type": "function",
+        "z": "990ff4862a79b3b1",
+        "name": "Prepare payload to get AC status ",
+        "func": "var creds = global.get(\"tuya\");\nmsg.accessKey = creds.access_token;\nmsg.secretKey = global.get(\"tuya_secret_key\");\nmsg.clientKey = global.get(\"tuya_client_id\");\nvar device_id = global.get(\"tuya_device_id\");\nmsg.url = \"/v1.0/devices/\" + device_id;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 200,
+        "wires": [
+            [
+                "37472f84ed31f189"
+            ]
+        ]
+    },
+    {
+        "id": "37472f84ed31f189",
+        "type": "tuya_get",
+        "z": "990ff4862a79b3b1",
+        "name": "",
+        "topic": "",
+        "host": "https://openapi.tuyaeu.com",
+        "x": 640,
+        "y": 200,
+        "wires": [
+            [
+                "0359a40f54442291"
+            ]
+        ]
+    },
+    {
+        "id": "8cbd52e137f4827e",
+        "type": "inject",
+        "z": "990ff4862a79b3b1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "ac7d9f9e6e2e7705"
+            ]
+        ]
+    },
+    {
+        "id": "0359a40f54442291",
+        "type": "function",
+        "z": "990ff4862a79b3b1",
+        "name": "Extracting mode",
+        "func": "var ac_on=msg.payload.result.status[0];\nmsg=msg.payload.result.status[3];\nvar value = msg.value;\nglobal.set(\"fan_current_mode\", value); \nglobal.set(\"fan_current_switch\",ac_on.value);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 200,
+        "wires": [
+            [
+                "5a65642e625b5e35",
+                "50ea804c0ec33097"
+            ]
+        ]
+    },
+    {
+        "id": "5a65642e625b5e35",
+        "type": "link out",
+        "z": "990ff4862a79b3b1",
+        "name": "Link-Out fan mode fetched Flow 3",
+        "mode": "link",
+        "links": [
+            "388ef0860c77a006"
+        ],
+        "x": 995,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "50ea804c0ec33097",
+        "type": "function",
+        "z": "990ff4862a79b3b1",
+        "name": "Condition check to switch on AC",
+        "func": "var local_switch_hvac=global.get(\"fan_current_switch\");\nvar local_device_master = global.get(\"DeviceId_Master\");\nvar local_device_id = global.get(\"DeviceId_Client1\");\nif (!local_switch_hvac && local_device_id==local_device_master)\n{\n    msg.payload=false;\n}\nelse{\n    msg.payload=true;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 280,
+        "wires": [
+            [
+                "3b3f437cab53c2d6"
+            ]
+        ]
+    },
+    {
+        "id": "3b3f437cab53c2d6",
+        "type": "switch",
+        "z": "990ff4862a79b3b1",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1030,
+        "y": 260,
+        "wires": [
+            [
+                "d64f8cb6b3e1287d"
+            ]
+        ]
+    },
+    {
+        "id": "31ee44df3220ed15",
+        "type": "websocket in",
+        "z": "990ff4862a79b3b1",
+        "name": "",
+        "server": "5975711bfaca59a8",
+        "client": "",
+        "x": 110,
+        "y": 200,
+        "wires": [
+            [
+                "ac7d9f9e6e2e7705"
+            ]
+        ]
+    },
+    {
+        "id": "d64f8cb6b3e1287d",
+        "type": "function",
+        "z": "990ff4862a79b3b1",
+        "name": "Turn On the Air conditioner",
+        "func": "var creds = global.get(\"tuya\");\nmsg.accessKey = creds.access_token;\nmsg.secretKey = global.get(\"tuya_secret_key\");\nmsg.clientKey = global.get(\"tuya_client_id\");\nvar device_id = global.get(\"tuya_device_id\");\nmsg.url = \"/v1.0/devices/\" + device_id + \"/commands\";\nmsg.body = JSON.stringify({\n  \"commands\": [\n    {\n      \"code\": \"switch\",\n      \"value\": true\n    }\n  ]\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 240,
+        "wires": [
+            [
+                "4db3548d9cdd26a6",
+                "bbd208db3d15131e"
+            ]
+        ]
+    },
+    {
+        "id": "4db3548d9cdd26a6",
+        "type": "tuya_post",
+        "z": "990ff4862a79b3b1",
+        "name": "",
+        "topic": "",
+        "body": "",
+        "url": "",
+        "host": "https://openapi.tuyaeu.com",
+        "x": 1500,
+        "y": 160,
+        "wires": [
+            [
+                "563e8824e33b115e"
+            ]
+        ]
+    },
+    {
+        "id": "563e8824e33b115e",
+        "type": "debug",
+        "z": "990ff4862a79b3b1",
+        "name": "debug 19",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1540,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "bbd208db3d15131e",
+        "type": "link out",
+        "z": "990ff4862a79b3b1",
+        "name": "Link out 2 update table",
+        "mode": "link",
+        "links": [
+            "928ef14aafec6819"
+        ],
+        "x": 1225,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "2fc910f77f1787d7",
+        "type": "debug",
+        "z": "990ff4862a79b3b1",
+        "name": "debug 20",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "76b43f9e497e1b14",
+        "type": "function",
+        "z": "990ff4862a79b3b1",
+        "name": "Data retreiving from ESP32",
+        "func": "// Parse the payload JSON string to an object\nvar data = JSON.parse(msg.payload);\n\n// Extract values from the parsed object\nvar DeviceID = data.DeviceID;\nvar Updated_User_Temp = data.Updated_User_Temp;\nvar Is_Turn_Off = data.Is_Turn_Off;\nvar Set_Voted = data.Set_Voted;\n// Set global variables with extracted values\nglobal.set(\"DeviceID\", DeviceID);\nglobal.set(\"Updated_User_Temp\", Updated_User_Temp);\nglobal.set(\"Is_Turn_Off\", Is_Turn_Off);  \nglobal.set(\"Set_Voted\", Set_Voted); \n// Return the msg object with the assigned global variables\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 600,
+        "wires": [
+            [
+                "dbb5622d71410e35"
+            ]
+        ]
+    },
+    {
+        "id": "911c71674b39ef4f",
+        "type": "function",
+        "z": "990ff4862a79b3b1",
+        "name": "Give command to the Air conditioner",
+        "func": "var creds = global.get(\"tuya\");\nmsg.accessKey = creds.access_token;\nmsg.secretKey = global.get(\"tuya_secret_key\");\nmsg.clientKey = global.get(\"tuya_client_id\");\nvar device_id = global.get(\"tuya_device_id\");\nvar local_device_id = global.get(\"DeviceID\");\nvar local_device_master = global.get(\"DeviceId_Master\");\nvar local_device_slave_1 = global.get(\"DeviceId_slave_1\");\nvar local_device_slave_2 = global.get(\"DeviceId_slave_2\");\nvar local_Voted_Temp = global.get(\"Voted_Temp\");\nvar local_Set_Voted = global.get(\"Set_Voted\");\nvar final_mode = \"\";\nmsg.payload = {};\nif (local_device_id == local_device_master) {\n  var Is_Turn_Off_local = global.get(\"Is_Turn_Off\");\n  if (local_Set_Voted) {\n    if (local_Voted_Temp!=0)\n    {\n      var Updated_User_Temp_local = local_Voted_Temp;\n    }\n    else{\n      var Updated_User_Temp_local = global.get(\"Temporary\");\n    }\n     \n  }\n  else {\n    var Updated_User_Temp_local = global.get(\"Updated_User_Temp\");\n  }\n  global.set(\"Display_Temp_To_Slave\",Updated_User_Temp_local);\n  msg.url = \"/v1.0/devices/\" + device_id + \"/commands\";\n  if (Is_Turn_Off_local) {\n    msg.body = JSON.stringify({\n      \"commands\": [\n        {\n          \"code\": \"switch\",\n          \"value\": false\n        }\n      ]\n    });\n  }\n  else {\n    msg.body = JSON.stringify({\n      \"commands\": [\n        {\n          \"code\": \"temp_set\",\n          \"value\": Updated_User_Temp_local\n        }\n      ]\n    });\n  }\n  return msg;\n}\nelse {\n  msg.payload = false;\n  return msg;\n}",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 680,
+        "wires": [
+            [
+                "785507c865393ee2",
+                "999b4074f3cc5d8e"
+            ]
+        ]
+    },
+    {
+        "id": "5e2b3df67fb93191",
+        "type": "tuya_post",
+        "z": "990ff4862a79b3b1",
+        "name": "",
+        "topic": "",
+        "body": "",
+        "url": "",
+        "host": "https://openapi.tuyaeu.com",
+        "x": 860,
+        "y": 620,
+        "wires": [
+            [
+                "2fc910f77f1787d7"
+            ]
+        ]
+    },
+    {
+        "id": "ef4296a9718b3e5e",
+        "type": "switch",
+        "z": "990ff4862a79b3b1",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "istype",
+                "v": "json",
+                "vt": "json"
+            },
+            {
+                "t": "istype",
+                "v": "string",
+                "vt": "string"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 190,
+        "y": 520,
+        "wires": [
+            [
+                "76b43f9e497e1b14"
+            ],
+            [
+                "7461074d23267935"
+            ]
+        ]
+    },
+    {
+        "id": "430cee0744c33a89",
+        "type": "debug",
+        "z": "990ff4862a79b3b1",
+        "name": "debug 21",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "fe7e05750e5d8bd5",
+        "type": "comment",
+        "z": "990ff4862a79b3b1",
+        "name": "Url for dashboard",
+        "info": "http://192.168.1.101:1880/ui/#!/0?socketid=okKT4A7NZHTNyJ_TAAAh",
+        "x": 840,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "928ef14aafec6819",
+        "type": "link in",
+        "z": "990ff4862a79b3b1",
+        "name": "Link In  2 update table",
+        "links": [
+            "bbd208db3d15131e"
+        ],
+        "x": 645,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0051fac8e07a94a0",
+        "type": "debug",
+        "z": "990ff4862a79b3b1",
+        "name": "debug 22",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "23c3e1ec060922e6",
+        "type": "websocket in",
+        "z": "990ff4862a79b3b1",
+        "name": "",
+        "server": "f2e5ac224ae31145",
+        "client": "",
+        "x": 170,
+        "y": 400,
+        "wires": [
+            [
+                "ef4296a9718b3e5e"
+            ]
+        ]
+    },
+    {
+        "id": "5dacb05a0308f20c",
+        "type": "websocket out",
+        "z": "990ff4862a79b3b1",
+        "name": "",
+        "server": "f2e5ac224ae31145",
+        "client": "",
+        "x": 570,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "dbb5622d71410e35",
+        "type": "function",
+        "z": "990ff4862a79b3b1",
+        "name": "Average temperature from slaves",
+        "func": "var local_device_master = global.get(\"DeviceId_Master\");\nvar local_device_slave_1 = global.get(\"DeviceId_slave_1\");\nvar local_device_slave_2 = global.get(\"DeviceId_slave_2\");\nvar Updated_User_Temp_local = global.get(\"Updated_User_Temp\");\nvar Set_Voted_local = global.get(\"Set_Voted\");\nvar DeviceID = global.get(\"DeviceID\");\nvar local_temp=0;\nglobal.set(\"Voted_Temp\", 0);\nif (DeviceID == local_device_slave_1)\n{\n    global.set(\"temp1\", Updated_User_Temp_local);\n}\nelse if (DeviceID == local_device_slave_2)\n{\n    global.set(\"temp2\", Updated_User_Temp_local);\n}\nif(DeviceID!=local_device_master)\n{\n    var temp1=global.get(\"temp1\") || 0;\n    var temp2 = global.get(\"temp2\") || 0;\n    local_temp=Math.round((temp1+temp2)/2);\n    global.set(\"Voted_Temp\",local_temp);\n    global.set(\"Temporary\",local_temp);\n}\n return msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 720,
+        "wires": [
+            [
+                "911c71674b39ef4f",
+                "f6c7485bf8c7dff1"
+            ]
+        ]
+    },
+    {
+        "id": "785507c865393ee2",
+        "type": "switch",
+        "z": "990ff4862a79b3b1",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 710,
+        "y": 640,
+        "wires": [
+            [
+                "5e2b3df67fb93191"
+            ],
+            [
+                "0051fac8e07a94a0"
+            ]
+        ]
+    },
+    {
+        "id": "999b4074f3cc5d8e",
+        "type": "function",
+        "z": "990ff4862a79b3b1",
+        "name": "Decision of Master",
+        "func": "var send_fan_mode = global.get(\"fan_current_mode\");\nvar payload_send = global.get(\"Current_Room_Temp\"); \nvar local_device_id = global.get(\"DeviceID\");\nvar local_device_master = global.get(\"DeviceId_Master\");\nvar local_Display_Temp_To_Slave = global.get(\"Display_Temp_To_Slave\");\nif(local_device_id==local_device_master)\n{\nvar message = {\n    payload: payload_send.toString(),\n    fanmode: send_fan_mode,  // Add the fanmode property\n    votedtemp: \"0\", //Show to master\n    announcetemp: local_Display_Temp_To_Slave.toString() //Show to Slave\n};\n    msg.payload = message;// Update msg.payload with the constructed message object\n}\nelse{\n    msg.payload=false;\n}\n\n// Return the updated payload object along with any other necessary properties\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 740,
+        "wires": [
+            [
+                "55355a3d97fb2070"
+            ]
+        ]
+    },
+    {
+        "id": "55355a3d97fb2070",
+        "type": "switch",
+        "z": "990ff4862a79b3b1",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 800,
+        "wires": [
+            [
+                "5dacb05a0308f20c"
+            ],
+            [
+                "33a3f577c05fc451"
+            ]
+        ]
+    },
+    {
+        "id": "87ac3169a9e921db",
+        "type": "debug",
+        "z": "990ff4862a79b3b1",
+        "name": "debug 26",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "33a3f577c05fc451",
+        "type": "function",
+        "z": "990ff4862a79b3b1",
+        "name": "Testing:View Voted temp",
+        "func": "var temp1 = global.get(\"temp1\") || 0;\nvar temp2 = global.get(\"temp2\") || 0;\nvar local = global.get(\"Voted_Temp\") || 0; \nvar message1 = {\n    temp1: temp1,\n    temp2: temp2,  // Add the fanmode property\n    avg : local\n};\nmsg.payload=message1;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 800,
+        "wires": [
+            [
+                "87ac3169a9e921db"
+            ]
+        ]
+    },
+    {
+        "id": "f6c7485bf8c7dff1",
+        "type": "debug",
+        "z": "990ff4862a79b3b1",
+        "name": "debug 27",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 260,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "7461074d23267935",
+        "type": "function",
+        "z": "990ff4862a79b3b1",
+        "name": "function 13",
+        "func": "var send_fan_mode = global.get(\"fan_current_mode\");\nvar payload_send = global.get(\"Current_Room_Temp\");\nvar local_temp = global.get(\"Voted_Temp\")||0;\nvar local_device_master = global.get(\"DeviceId_Master\");\n//var DeviceID = global.get(\"DeviceID\");\nif (msg.payload == local_device_master) {\n    var message = {\n        payload: payload_send.toString(),\n        fanmode: send_fan_mode,  // Add the fanmode property\n        votedtemp: String(local_temp), //Show to master\n        announcetemp: \"0\" //Show to Slave\n    };\n    global.set(\"temp1\", 0);\n    global.set(\"temp2\", 0);\n}\nelse {\n    var message = {\n        payload: payload_send.toString(),\n        fanmode: send_fan_mode,  // Add the fanmode property\n        votedtemp: \"0\", //Show to master\n        announcetemp: \"0\" //Show to Slave\n    };\n}\n// Update msg.payload with the constructed message object\nmsg.payload = message;\n\n// Return the updated payload object along with any other necessary properties\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 480,
+        "wires": [
+            [
+                "db4fbe51130293ba",
+                "430cee0744c33a89"
+            ]
+        ]
+    },
+    {
+        "id": "db4fbe51130293ba",
+        "type": "websocket out",
+        "z": "990ff4862a79b3b1",
+        "name": "",
+        "server": "f2e5ac224ae31145",
+        "client": "",
+        "x": 570,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "5975711bfaca59a8",
+        "type": "websocket-listener",
+        "path": "/ws/voter",
+        "wholemsg": "false"
+    },
+    {
+        "id": "f2e5ac224ae31145",
+        "type": "websocket-listener",
+        "path": "/ws/voteruser",
+        "wholemsg": "false"
+    }
+]

@@ -1,0 +1,2062 @@
+[
+    {
+        "id": "ce5141d8e0da9c6a",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "657db6e74f312162",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d8ceab4633dc998b",
+        "type": "tab",
+        "label": "Flow 5",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "33a34b92cb4b9d34",
+        "type": "subflow",
+        "name": "NEPPI_voting",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 20,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "10f9e8e6d0771280"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 2180,
+                "y": 220,
+                "wires": [
+                    {
+                        "id": "077d96c85167ef9f",
+                        "port": 0
+                    },
+                    {
+                        "id": "0bbee5f52d8c1fa5",
+                        "port": 0
+                    },
+                    {
+                        "id": "f6ea7a1814583df9",
+                        "port": 1
+                    },
+                    {
+                        "id": "3fbb21e1e9f6d112",
+                        "port": 1
+                    },
+                    {
+                        "id": "b0168657b7c72f77",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "077d96c85167ef9f",
+        "type": "junction",
+        "z": "33a34b92cb4b9d34",
+        "x": 840,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0bbee5f52d8c1fa5",
+        "type": "junction",
+        "z": "33a34b92cb4b9d34",
+        "x": 340,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a7f83b6b05fd9361",
+        "type": "websocket-listener",
+        "path": "/ws/testdevices",
+        "wholemsg": "false"
+    },
+    {
+        "id": "a36a7f5.e73cf8",
+        "type": "websocket-listener",
+        "path": "/ws/netatmorequests",
+        "wholemsg": "true"
+    },
+    {
+        "id": "b4afa46adbd8ace6",
+        "type": "websocket-listener",
+        "path": "/ws/hex/pp",
+        "wholemsg": "false"
+    },
+    {
+        "id": "2542472e6161e6eb",
+        "type": "websocket-listener",
+        "path": "/ws/netatmorequest",
+        "wholemsg": "true"
+    },
+    {
+        "id": "d834377204d9eb47",
+        "type": "websocket-listener",
+        "path": "/ws/netatmorequest",
+        "wholemsg": "true"
+    },
+    {
+        "id": "a9dd938e89fd396e",
+        "type": "websocket-listener",
+        "path": "/ws/netatmorequest",
+        "wholemsg": "true"
+    },
+    {
+        "id": "a8c5f20ecfa87353",
+        "type": "websocket-listener",
+        "path": "/ws/netatmorequest",
+        "wholemsg": "true"
+    },
+    {
+        "id": "59a5a29c0b1fa6fb",
+        "type": "ui_tab",
+        "name": "Lyfco AC",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "fdb79282b0a607f3",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "91ce125b289e8ecf",
+        "type": "ui_group",
+        "name": "AC Working Report",
+        "tab": "59a5a29c0b1fa6fb",
+        "order": 1,
+        "disp": true,
+        "width": "20",
+        "collapse": false,
+        "className": "my-table"
+    },
+    {
+        "id": "10f9e8e6d0771280",
+        "type": "function",
+        "z": "33a34b92cb4b9d34",
+        "name": "Send A colour",
+        "func": "/*\n    msg contains\n    vote_a  ==placeID\n    vote_b  ==placeID\n    colour_a    \n    colour_b\n */\n\nlet message = new Array(2);\n\nmessage[0] = msg;\nmessage[1] = { payload : msg.vote_a + \"||\" + msg.colour_a };\nreturn message;",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "07c3fd35e16e6808"
+            ],
+            [
+                "0bbee5f52d8c1fa5"
+            ]
+        ],
+        "outputLabels": [
+            "Send vote_b",
+            "Send vote_a"
+        ]
+    },
+    {
+        "id": "7df21c30c2cf4061",
+        "type": "function",
+        "z": "33a34b92cb4b9d34",
+        "name": "Send B colour",
+        "func": "/*\n    msg contains\n    vote_a  ==placeID\n    vote_b  ==placeID\n    colour_a    \n    colour_b\n */\n\nlet message = new Array(2);\n\nmessage[0] = msg;\nmessage[1] = { payload: msg.vote_b + \"||\" + msg.colour_b };\nreturn message;",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 80,
+        "wires": [
+            [
+                "d5a45659ff1dbcb9"
+            ],
+            [
+                "077d96c85167ef9f"
+            ]
+        ],
+        "outputLabels": [
+            "",
+            "Send vote b"
+        ]
+    },
+    {
+        "id": "07c3fd35e16e6808",
+        "type": "delay",
+        "z": "33a34b92cb4b9d34",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 80,
+        "wires": [
+            [
+                "7df21c30c2cf4061"
+            ]
+        ]
+    },
+    {
+        "id": "d5a45659ff1dbcb9",
+        "type": "delay",
+        "z": "33a34b92cb4b9d34",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 870,
+        "y": 80,
+        "wires": [
+            [
+                "f6ea7a1814583df9"
+            ]
+        ]
+    },
+    {
+        "id": "f6ea7a1814583df9",
+        "type": "function",
+        "z": "33a34b92cb4b9d34",
+        "name": "Send vote_a",
+        "func": "/*\n    msg contains\n    vote_a  ==placeID\n    vote_b  ==placeID\n    colour_a    \n    colour_b\n */\nlet message = Array(2);\nmessage[0] = msg;\nmessage[1] = { payload : \"vote_a||\"+msg.vote_a } \n\nreturn message;",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 80,
+        "wires": [
+            [
+                "08f4185f6146bebb"
+            ],
+            []
+        ],
+        "outputLabels": [
+            "continue to b",
+            "send A"
+        ]
+    },
+    {
+        "id": "08f4185f6146bebb",
+        "type": "delay",
+        "z": "33a34b92cb4b9d34",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1290,
+        "y": 80,
+        "wires": [
+            [
+                "3fbb21e1e9f6d112"
+            ]
+        ]
+    },
+    {
+        "id": "3fbb21e1e9f6d112",
+        "type": "function",
+        "z": "33a34b92cb4b9d34",
+        "name": "Send vote_b",
+        "func": "/*\n    msg contains\n    vote_a  ==placeID\n    vote_b  ==placeID\n    colour_a    \n    colour_b\n */\nlet message = Array(2);\nmessage[0] = msg;\nmessage[1] = { payload : \"vote_b||\"+msg.vote_b } \n\nreturn message;",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 80,
+        "wires": [
+            [
+                "6b4ffb96b9751bc9"
+            ],
+            []
+        ],
+        "outputLabels": [
+            "continue to b",
+            "send A"
+        ]
+    },
+    {
+        "id": "6b4ffb96b9751bc9",
+        "type": "delay",
+        "z": "33a34b92cb4b9d34",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1690,
+        "y": 80,
+        "wires": [
+            [
+                "b0168657b7c72f77"
+            ]
+        ]
+    },
+    {
+        "id": "b0168657b7c72f77",
+        "type": "function",
+        "z": "33a34b92cb4b9d34",
+        "name": "Start voting",
+        "func": "/*\n    msg contains\n    vote_a  ==placeID\n    vote_b  ==placeID\n    colour_a    \n    colour_b\n */\nmsg.payload = \"vote\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1910,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "outputLabels": [
+            "continue to b"
+        ]
+    },
+    {
+        "id": "d5cc501617bfcd5d",
+        "type": "websocket in",
+        "z": "ce5141d8e0da9c6a",
+        "name": "",
+        "server": "a7f83b6b05fd9361",
+        "client": "",
+        "x": 350,
+        "y": 380,
+        "wires": [
+            [
+                "6b31f82c5dc391a7"
+            ]
+        ]
+    },
+    {
+        "id": "5224cce5e6c77113",
+        "type": "debug",
+        "z": "ce5141d8e0da9c6a",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "6b31f82c5dc391a7",
+        "type": "function",
+        "z": "ce5141d8e0da9c6a",
+        "name": "Data handling",
+        "func": "// Initialize the database (context variable)\nif (!context.global.hasOwnProperty(\"temperatureDB\")) {\n    context.global.temperatureDB = {};\n}\n\n// Initialize the device counter (context variable)\nif (!context.global.hasOwnProperty(\"deviceCounter\")) {\n    context.global.deviceCounter = 1;\n}\n\n// Extract data from WebSocket message\nconst messageParts = msg.payload.split(';');\nconst macAddress = messageParts[0];\nconst temperature = parseFloat(messageParts[1]);\n\n// Check if MAC address exists in the database\nif (context.global.temperatureDB.hasOwnProperty(macAddress)) {\n    const currentTime = new Date().getTime();\n    const lastMessageTime = context.global.temperatureDB[macAddress].lastMessageTime;\n    const timeDifference = (currentTime - lastMessageTime) / 1000; // Convert to seconds\n\n    // Check if time difference is greater than or equal to 10 seconds\n    if (timeDifference >= 9 * 60 * 60) { \n        context.global.temperatureDB[macAddress].ResTempVal = 1;\n    }\n\n    // Update the temperature and last message time\n    context.global.temperatureDB[macAddress].temperature = temperature;\n    context.global.temperatureDB[macAddress].lastMessageTime = currentTime;\n} else {\n    // Assign a unique device number\n    const deviceNumber = context.global.deviceCounter++;\n\n    // Add new entry to the database with MAC, temperature, and device number\n    context.global.temperatureDB[macAddress] = {\n        deviceNumber: deviceNumber,\n        temperature: temperature,\n        lastMessageTime: new Date().toLocaleString(),\n        ResTempVal: 0\n    };\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 380,
+        "wires": [
+            [
+                "5224cce5e6c77113",
+                "873dd6e9cb95e432"
+            ]
+        ]
+    },
+    {
+        "id": "81788c19f1f4d44f",
+        "type": "inject",
+        "z": "ce5141d8e0da9c6a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"temperatureDB\": {} }",
+        "payloadType": "json",
+        "x": 420,
+        "y": 60,
+        "wires": [
+            [
+                "4eb5436105994e3c"
+            ]
+        ]
+    },
+    {
+        "id": "8a85952ca9a3e890",
+        "type": "debug",
+        "z": "ce5141d8e0da9c6a",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "4eb5436105994e3c",
+        "type": "function",
+        "z": "ce5141d8e0da9c6a",
+        "name": "function 1",
+        "func": "context.global.temperatureDB = {};\ncontext.global.deviceCounter = 1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 60,
+        "wires": [
+            [
+                "8a85952ca9a3e890"
+            ]
+        ]
+    },
+    {
+        "id": "94d02e2c2e1e5291",
+        "type": "http response",
+        "z": "ce5141d8e0da9c6a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 770,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "42cde4ae673f087b",
+        "type": "http in",
+        "z": "ce5141d8e0da9c6a",
+        "name": "",
+        "url": "/temperature",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 350,
+        "y": 540,
+        "wires": [
+            [
+                "635f8e495780776a"
+            ]
+        ]
+    },
+    {
+        "id": "e3d5113fbf81d910",
+        "type": "comment",
+        "z": "ce5141d8e0da9c6a",
+        "name": "http://192.168.42.10:1880/",
+        "info": "",
+        "x": 610,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f4b55e8a3abe9d6f",
+        "type": "comment",
+        "z": "ce5141d8e0da9c6a",
+        "name": "RESET DB",
+        "info": "",
+        "x": 340,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "c2ce58f83bf94ad1",
+        "type": "comment",
+        "z": "ce5141d8e0da9c6a",
+        "name": "Get And Send Data from ESPs",
+        "info": "",
+        "x": 390,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "710e43567f35922d",
+        "type": "comment",
+        "z": "ce5141d8e0da9c6a",
+        "name": "Show data on HTTP page",
+        "info": "",
+        "x": 370,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "635f8e495780776a",
+        "type": "function",
+        "z": "ce5141d8e0da9c6a",
+        "name": "Show Data on HTTP",
+        "func": "// Retrieve the temperatureDB data from the context\nconst temperatureDB = context.global.temperatureDB;\n\n// Function to format a date as \"YYYY-MM-DD HH:MM:SS\"\nconst formatDateTime = (date) => {\n  const year = date.getFullYear();\n  const month = String(date.getMonth() + 1).padStart(2, '0');\n  const day = String(date.getDate()).padStart(2, '0');\n  const hours = String(date.getHours()).padStart(2, '0');\n  const minutes = String(date.getMinutes()).padStart(2, '0');\n  const seconds = String(date.getSeconds()).padStart(2, '0');\n  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;\n};\n\n// Calculate time in seconds from the last message\nconst calculateTimeDifference = (lastMessageTime) => {\n  const currentTime = new Date();\n  const lastMessage = new Date(lastMessageTime);\n  const timeDifference = Math.round((currentTime - lastMessage) / 1000); // Convert to seconds\n  return timeDifference;\n};\n\n// Generate the HTML table\nlet html = `\n<!DOCTYPE html>\n<html>\n<head>\n<style>\n  table {\n    border-collapse: collapse;\n    width: 100%;\n    border: 1px solid #ddd;\n  }\n  th, td {\n    text-align: left;\n    padding: 8px;\n  }\n  th {\n    background-color: #f2f2f2;\n  }\n  /* Add custom CSS class for rows with time difference under 5 seconds */\n  .row-under-5 {\n    background-color: #00cc66; /* Change the color as desired */\n  }\n  .row-yellow {\n    background-color: yellow; /* Change the color as desired */\n  }\n</style>\n<script>\n  // Function to update the table every second\n  function updateTable() {\n    fetch(window.location.href) // Fetch the current page URL\n      .then(response => response.text())\n      .then(data => {\n        document.querySelector('#table-container').innerHTML = data;\n        setTimeout(updateTable, 1000); // Update again after 1 second\n      });\n  }\n  // Call the function to start updating the table\n  updateTable();\n</script>\n</head>\n<body>\n<div id=\"table-container\">\n  <table>\n    <tr>\n      <th>Device Number</th>\n      <th>MAC Address</th>\n      <th>Temperature</th>\n      <th>Last Message Time</th>\n      <th>Time Since Last Message (seconds)</th>\n    </tr>\n`;\n\n// Populate the table with data from temperatureDB\nfor (const macAddress in temperatureDB) {\n  const deviceNumber = temperatureDB[macAddress].deviceNumber;\n  const temperature = temperatureDB[macAddress].temperature;\n  const lastMessageTime = temperatureDB[macAddress].lastMessageTime;\n  const timeDifference = calculateTimeDifference(lastMessageTime);\n\n  // Format the lastMessageTime\n  const formattedLastMessageTime = formatDateTime(new Date(lastMessageTime));\n\n  let rowClass = '';\n\n  if (timeDifference <= 5) {\n    rowClass = 'row-under-5';\n  } else if (timeDifference > 5 && timeDifference < 120) {\n    rowClass = 'row-yellow';\n  }\n  html += `\n        <tr class=\"${rowClass}\">\n          <td>${deviceNumber}</td>\n          <td>${macAddress}</td>\n          <td>${temperature}</td>\n          <td>${formattedLastMessageTime}</td>\n          <td>${timeDifference}</td>\n        </tr>\n        `;\n}\n\nhtml += `\n  </table>\n</div>\n\n</body>\n</html>\n`;\n\n// Create the HTTP response object\nmsg.payload = html;\nmsg.headers = {\n  \"Content-Type\": \"text/html\"\n};\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 4,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 540,
+        "wires": [
+            [
+                "94d02e2c2e1e5291"
+            ]
+        ]
+    },
+    {
+        "id": "20a49cbc244ff9cf",
+        "type": "comment",
+        "z": "ce5141d8e0da9c6a",
+        "name": "Set room temperature",
+        "info": "",
+        "x": 360,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "cfb1d6ad359958de",
+        "type": "http response",
+        "z": "ce5141d8e0da9c6a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 770,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "1bc3d5584157d951",
+        "type": "function",
+        "z": "ce5141d8e0da9c6a",
+        "name": "Show controls on HTTP",
+        "func": "const temperature = context.global.temperature || 20;\nconst room = context.global.room || 'TUAS 3555';\nconst status = context.global.status || 0;\n\nconst pageContent = `\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Room Temperature Control</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            background-color: #f7f7f7;\n            margin: 0;\n            padding: 0;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            min-height: 100vh;\n        }\n        .container {\n            background-color: #fff;\n            padding: 20px;\n            border-radius: 5px;\n            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n            text-align: center;\n        }\n        h2 {\n            color: #333;\n            margin-bottom: 20px;\n        }\n        p {\n            font-size: 18px;\n            margin: 10px 0;\n        }\n        /* Styling for buttons */\n        .btn-inc, .btn-dec, .btn-update {\n            background-color: #007bff;\n            color: #fff;\n            border: none;\n            border-radius: 5px;\n            padding: 14px 28px; /* Increase button size */\n            margin: 0 10px;\n            cursor: pointer;\n            font-size: 18px;\n        }\n        .btn-inc:hover, .btn-dec:hover, .btn-update:hover {\n            opacity: 0.9;\n        }\n        .btn-dec {\n            background-color: #d9534f;\n        }\n        .btn-inc {\n            background-color: #5cb85c;\n        }\n        /* Styling for status buttons */\n        .status-button {\n            background-color: #007bff;\n            color: #fff;\n            border: none;\n            border-radius: 5px;\n            padding: 14px 28px;\n            margin: 0 10px;\n            cursor: pointer;\n            font-size: 18px;\n        }\n        .status-button:hover {\n            opacity: 0.9;\n        }\n        /* Styling for input box */\n        input[type=\"text\"] {\n            padding: 10px;\n            border: 1px solid #ccc;\n            border-radius: 5px;\n            width: 200px;\n            margin-right: 10px;\n            font-size: 16px;\n        }\n    </style>\n</head>\n<body>\n    <div class=\"container\">\n        <div class=\"controls\">\n            <h2>Room Temperature Control</h2>\n            <p>Current Temperature: ${temperature} °C</p>\n            <button class=\"btn-dec\" onclick=\"changeTemperature('-')\">-</button>\n            <button class=\"btn-inc\" onclick=\"changeTemperature('+')\">+</button>\n        </div>\n        <p>Current Room Name: ${room}</p>\n        <input type=\"text\" id=\"newRoom\" placeholder=\"New Room Name\">\n        <button class=\"btn-update\" onclick=\"changeRoom()\">Update Room Name</button>\n        <h3>Temperature status: ${status}</h3>\n        <button class=\"status-button\" data-status=\"-1\" onclick=\"changeRoomStatus('-1')\">Cooling</button>\n        <button class=\"status-button\" data-status=\"0\" onclick=\"changeRoomStatus('0')\">Neutral</button>\n        <button class=\"status-button\" data-status=\"1\" onclick=\"changeRoomStatus('1')\">Heating</button>\n\n    </div>\n    <script>\n        function changeTemperature(action) {\n            fetch('/roomtemp', {\n                method: 'POST',\n                headers: {\n                    'Content-Type': 'application/json'\n                },\n                body: JSON.stringify({ action: action })\n            })\n            .then(response => response.text())\n            .then(data => location.reload()); // Refresh page after change\n        }\n\n        function changeRoom() {\n            const newRoom = document.getElementById('newRoom').value;\n            fetch('/roomtemp', {\n                method: 'POST',\n                headers: {\n                    'Content-Type': 'application/json'\n                },\n                body: JSON.stringify({ room: newRoom })\n            })\n            .then(response => response.text())\n            .then(data => location.reload()); // Refresh page after change\n        }\n\n        function changeRoomStatus(roomstatus) {\n            fetch('/roomtemp', {\n                method: 'POST',\n                headers: {\n                    'Content-Type': 'application/json'\n                },\n                body: JSON.stringify({ status: roomstatus })\n            })\n            .then(response => response.text())\n            .then(data => {\n                // Store the new status in local storage\n                localStorage.setItem('status', roomstatus);\n\n                location.reload(); // Refresh page after change\n            });\n        }\n\n        // Function to set button colors based on the stored status\n        function setButtonColors() {\n            const status = localStorage.getItem('status');\n            const coolingButton = document.querySelector('button[data-status=\"-1\"]');\n            const neutralButton = document.querySelector('button[data-status=\"0\"]');\n            const heatingButton = document.querySelector('button[data-status=\"1\"]');\n\n            coolingButton.style.backgroundColor = status === '-1' ? '#007bff' : '#ccc';\n            neutralButton.style.backgroundColor = status === '0' ? '#007bff' : '#ccc';\n            heatingButton.style.backgroundColor = status === '1' ? '#007bff' : '#ccc';\n        }\n\n        // Call the function to set button colors when the page loads\n        window.onload = setButtonColors;\n\n        // Other functions (changeTemperature, changeRoom) remain the same as before\n    </script>\n</body>\n</html>\n`;\n\nmsg.payload = pageContent;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 660,
+        "wires": [
+            [
+                "cfb1d6ad359958de"
+            ]
+        ]
+    },
+    {
+        "id": "d4793e5275d1c789",
+        "type": "http in",
+        "z": "ce5141d8e0da9c6a",
+        "name": "",
+        "url": "/roomtemp",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 340,
+        "y": 660,
+        "wires": [
+            [
+                "1bc3d5584157d951"
+            ]
+        ]
+    },
+    {
+        "id": "873dd6e9cb95e432",
+        "type": "function",
+        "z": "ce5141d8e0da9c6a",
+        "name": "Replay to ESPs",
+        "func": "// Extract data from WebSocket message\nconst messageParts = msg.payload.split(';');\nconst macAddress = messageParts[0];\nconst ResVal = context.global.temperatureDB[macAddress].ResTempVal;\nvar message = context.global.room + \";\" + context.global.temperature + \";\" + context.global.status + \";\" + macAddress + \"-\" + ResVal;\nif (ResVal === 1){\n    context.global.temperatureDB[macAddress].ResTempVal = 0;\n}\nreturn { payload: message };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 420,
+        "wires": [
+            [
+                "8b0ca5f457a48033",
+                "ffcf65f0ac348239"
+            ]
+        ]
+    },
+    {
+        "id": "8b0ca5f457a48033",
+        "type": "debug",
+        "z": "ce5141d8e0da9c6a",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "ffcf65f0ac348239",
+        "type": "websocket out",
+        "z": "ce5141d8e0da9c6a",
+        "name": "",
+        "server": "a7f83b6b05fd9361",
+        "client": "",
+        "x": 1040,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "0e9cebe78400ee7a",
+        "type": "http in",
+        "z": "ce5141d8e0da9c6a",
+        "name": "",
+        "url": "/roomtemp",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 340,
+        "y": 720,
+        "wires": [
+            [
+                "987b9fc902a4eaaf"
+            ]
+        ]
+    },
+    {
+        "id": "987b9fc902a4eaaf",
+        "type": "function",
+        "z": "ce5141d8e0da9c6a",
+        "name": "EDIT VALUES FROM CONTROL HTTP",
+        "func": "if (msg.payload.action === '+') {\n    context.global.temperature = (context.global.temperature || 20) + 1;\n} else if (msg.payload.action === '-') {\n    context.global.temperature = (context.global.temperature || 20) - 1;\n} else if (msg.payload.room) {\n    context.global.room = msg.payload.room;\n} else if (msg.payload.status === '-1') {\n    context.global.status = -1\n} else if (msg.payload.status === '0') {\n    context.global.status = 0\n} else if (msg.payload.status === '1') {\n    context.global.status = 1\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 720,
+        "wires": [
+            [
+                "4f917c5c72bd6516",
+                "6e53cb5f312ab9f7"
+            ]
+        ]
+    },
+    {
+        "id": "4f917c5c72bd6516",
+        "type": "http response",
+        "z": "ce5141d8e0da9c6a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 870,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "f474129ba808a599",
+        "type": "link in",
+        "z": "ce5141d8e0da9c6a",
+        "name": "link in 1",
+        "links": [
+            "6e53cb5f312ab9f7"
+        ],
+        "x": 605,
+        "y": 460,
+        "wires": [
+            [
+                "0e22c07dceb65838"
+            ]
+        ]
+    },
+    {
+        "id": "6e53cb5f312ab9f7",
+        "type": "link out",
+        "z": "ce5141d8e0da9c6a",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "f474129ba808a599"
+        ],
+        "x": 835,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "c919c00fa77aaf0f",
+        "type": "inject",
+        "z": "ce5141d8e0da9c6a",
+        "name": "TEMP20ROOM3555",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "TEMP20ROOM3555",
+        "payloadType": "msg",
+        "x": 410,
+        "y": 160,
+        "wires": [
+            [
+                "943544e99e81046f"
+            ]
+        ]
+    },
+    {
+        "id": "5dc0e029095633e9",
+        "type": "debug",
+        "z": "ce5141d8e0da9c6a",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "943544e99e81046f",
+        "type": "function",
+        "z": "ce5141d8e0da9c6a",
+        "name": "function 6",
+        "func": "context.global.temperature = 20;\ncontext.global.room = 'TUAS 3555';\ncontext.global.status = 0;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 160,
+        "wires": [
+            [
+                "5dc0e029095633e9"
+            ]
+        ]
+    },
+    {
+        "id": "654d522c1f752f38",
+        "type": "comment",
+        "z": "ce5141d8e0da9c6a",
+        "name": "RESET Room values",
+        "info": "",
+        "x": 380,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "0e22c07dceb65838",
+        "type": "function",
+        "z": "ce5141d8e0da9c6a",
+        "name": "Update DATA to ESP",
+        "func": "// Extract data from WebSocket message\nconst macAddress = 0;\nconst ResVal = 0;\nvar message = context.global.room + \";\" + context.global.temperature + \";\" + context.global.status + \";\" + macAddress + \"-\" + ResVal;\n\nreturn { payload: message };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 460,
+        "wires": [
+            [
+                "ffcf65f0ac348239",
+                "8b0ca5f457a48033"
+            ]
+        ]
+    },
+    {
+        "id": "0b159fa0ab014072",
+        "type": "inject",
+        "z": "ce5141d8e0da9c6a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "34:85:18:07:90;24",
+        "payloadType": "str",
+        "x": 430,
+        "y": 440,
+        "wires": [
+            [
+                "6b31f82c5dc391a7"
+            ]
+        ]
+    },
+    {
+        "id": "6d0594a1777af059",
+        "type": "function",
+        "z": "657db6e74f312162",
+        "name": "Prepare headers and Payload",
+        "func": "msg.topic=\"65c0d9f962b5717e320bb691|95d440174a6c6df20cbaa3b7a85a4c2a\";\nmsg.headers={\n'Content-Type' : 'application/x-www-form-urlencoded'\n};\nvar refresh=global.get(\"myGlobalRefreshToken\")??msg.topic;\nmsg.payload={\n\"grant_type\": \"refresh_token\",\n\"refresh_token\": refresh, \n\"client_id\": \"65ccba5a2ed0baeee508f930\",\n\"client_secret\": \"52idRBOmHG9bcfgofvVKL5j0Vhi5EC9g\"\n}\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 80,
+        "wires": [
+            [
+                "f1477f17ecba9dc8"
+            ]
+        ]
+    },
+    {
+        "id": "f1477f17ecba9dc8",
+        "type": "http request",
+        "z": "657db6e74f312162",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://api.netatmo.com/oauth2/token",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 610,
+        "y": 80,
+        "wires": [
+            [
+                "1f842fdbf52d1efb"
+            ]
+        ]
+    },
+    {
+        "id": "1f842fdbf52d1efb",
+        "type": "function",
+        "z": "657db6e74f312162",
+        "name": "Sets Refresh token ",
+        "func": "if (msg.payload.refresh_token != null || msg.payload.refresh_token != \"\")\n{\n    global.set(\"myGlobalRefreshToken\", msg.payload.refresh_token);\n}\nelse{\n   global.set(\"myGlobalRefreshToken\", msg.topic);\n}\nmsg._msgid=global.get(\"myGlobalRefreshToken\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 200,
+        "wires": [
+            [
+                "3053bc851755353c"
+            ]
+        ]
+    },
+    {
+        "id": "18d78d0274e3e926",
+        "type": "comment",
+        "z": "657db6e74f312162",
+        "name": "Request Token+NetAtmo websocket",
+        "info": "",
+        "x": 400,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "07aa28a0e4a450d7",
+        "type": "comment",
+        "z": "657db6e74f312162",
+        "name": "Get Temperature,Humidity(%) and CO2 levels(ppm)",
+        "info": "",
+        "x": 230,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "fffb57ce006f4032",
+        "type": "http request",
+        "z": "657db6e74f312162",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 550,
+        "y": 300,
+        "wires": [
+            [
+                "c11496691dc91003"
+            ]
+        ]
+    },
+    {
+        "id": "8520755716d62db2",
+        "type": "function",
+        "z": "657db6e74f312162",
+        "name": "Prepare to get the temperature",
+        "func": "var device_id=\"70:ee:50:9c:fc:ba\";\nvar scale=\"max\";\nvar type=\"temperature\";\nvar date_end = Date.now().toString();\nvar optimize=\"false\";\nvar real_time=\"true\";\nvar url = \"https://api.netatmo.com/api/getmeasure?device_id=\" + device_id + \"&scale=\" + scale + \"&type=\" +type \n    + \"&date_end=\" + date_end + \"&optimize=\" + optimize + \"&real_time=\" +real_time;\nmsg.url=url;\nmsg.headers = {\n    \"Authorization\": \"Bearer \" + msg.payload.access_token\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 300,
+        "wires": [
+            [
+                "fffb57ce006f4032"
+            ]
+        ]
+    },
+    {
+        "id": "26b1bfaaa8912fb5",
+        "type": "debug",
+        "z": "657db6e74f312162",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "c11496691dc91003",
+        "type": "function",
+        "z": "657db6e74f312162",
+        "name": "Extract current temperature",
+        "func": "// Extract the last object from msg.payload.body\nvar keys = Object.keys(msg.payload.body);\nvar lastKey = keys[keys.length - 1];\nvar lastObject = Math.round(msg.payload.body[lastKey]);\nglobal.set(\"Current_Room_Temp\", lastObject); \n  let date = new Date(1000*parseInt(lastKey,10));\n    date.setUTCHours(date.getUTCHours() + 2);\n    // Extract the various components of the date\n    let year = date.getFullYear();\n    let month = ('0' + (date.getMonth() + 1)).slice(-2); // Add leading zero if necessary\n    let day = ('0' + date.getDate()).slice(-2); // Add leading zero if necessary\n    let hours = ('0' + date.getHours()).slice(-2); // Add leading zero if necessary\n    let minutes = ('0' + date.getMinutes()).slice(-2); // Add leading zero if necessary\n    let seconds = ('0' + date.getSeconds()).slice(-2); // Add leading zero if necessary\n\n    // Construct the formatted date and time string\n    let formattedDate = `${year}-${month}-${day}`;\n    let formattedTime = `${hours}:${minutes}:${seconds}`;\n//Update msg.payload with data from the last object\n// msg.payload = {\n//    key: `${formattedDate} ${formattedTime}`,\n//     value: lastObject\n// };\nvar send_fan_mode=global.get(\"fan_current_mode\");\n// Construct the message object\nvar message = {\n   payload : lastObject.toString(),\n   fanmode: send_fan_mode  // Add the fanmode property\n};\n\n// Update msg.payload with the constructed message object\nmsg.payload = message;\n\n// Return the updated payload object along with any other necessary properties\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 300,
+        "wires": [
+            [
+                "26b1bfaaa8912fb5",
+                "b585735138e722dc"
+            ]
+        ]
+    },
+    {
+        "id": "b585735138e722dc",
+        "type": "websocket out",
+        "z": "657db6e74f312162",
+        "name": "",
+        "server": "b4afa46adbd8ace6",
+        "client": "",
+        "x": 1100,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "388ef0860c77a006",
+        "type": "link in",
+        "z": "657db6e74f312162",
+        "name": "Link-In fan mode fetched Flow 3",
+        "links": [
+            "39599b5cf092e8f7",
+            "49da1c237300d8bc"
+        ],
+        "x": 125,
+        "y": 80,
+        "wires": [
+            [
+                "6d0594a1777af059"
+            ]
+        ]
+    },
+    {
+        "id": "0491878012dfec46",
+        "type": "function",
+        "z": "657db6e74f312162",
+        "name": "Prepare to get the humidity",
+        "func": "var device_id=\"70:ee:50:9c:fc:ba\";\nvar scale=\"max\";\nvar type=\"humidity\";\nvar date_end = Date.now().toString();\nvar optimize=\"false\";\nvar real_time=\"true\";\nvar url = \"https://api.netatmo.com/api/getmeasure?device_id=\" + device_id + \"&scale=\" + scale + \"&type=\" +type \n    + \"&date_end=\" + date_end + \"&optimize=\" + optimize + \"&real_time=\" +real_time;\nmsg.url=url;\nmsg.headers = {\n    \"Authorization\": \"Bearer \" + msg.payload.access_token\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 360,
+        "wires": [
+            [
+                "2589bd93ae9e595d"
+            ]
+        ]
+    },
+    {
+        "id": "21c345c3122b46a7",
+        "type": "function",
+        "z": "657db6e74f312162",
+        "name": "Prepare to get the carbon dioxide levels",
+        "func": "var device_id=\"70:ee:50:9c:fc:ba\";\nvar scale=\"max\";\nvar type=\"co2\";\nvar date_end = Date.now().toString();\nvar optimize=\"false\";\nvar real_time=\"true\";\nvar url = \"https://api.netatmo.com/api/getmeasure?device_id=\" + device_id + \"&scale=\" + scale + \"&type=\" +type \n    + \"&date_end=\" + date_end + \"&optimize=\" + optimize + \"&real_time=\" +real_time;\nmsg.url=url;\nmsg.headers = {\n    \"Authorization\": \"Bearer \" + msg.payload.access_token\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 420,
+        "wires": [
+            [
+                "0c193a205140f796"
+            ]
+        ]
+    },
+    {
+        "id": "2589bd93ae9e595d",
+        "type": "http request",
+        "z": "657db6e74f312162",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 570,
+        "y": 360,
+        "wires": [
+            [
+                "a13ed583ef07721e"
+            ]
+        ]
+    },
+    {
+        "id": "0c193a205140f796",
+        "type": "http request",
+        "z": "657db6e74f312162",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 590,
+        "y": 420,
+        "wires": [
+            [
+                "494179d2c8f8a80f"
+            ]
+        ]
+    },
+    {
+        "id": "3053bc851755353c",
+        "type": "link out",
+        "z": "657db6e74f312162",
+        "name": "NetAtmo Out",
+        "mode": "link",
+        "links": [
+            "5b9c00f4c45500e8"
+        ],
+        "x": 695,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5b9c00f4c45500e8",
+        "type": "link in",
+        "z": "657db6e74f312162",
+        "name": "NetAtmo In",
+        "links": [
+            "3053bc851755353c"
+        ],
+        "x": 115,
+        "y": 340,
+        "wires": [
+            [
+                "8520755716d62db2",
+                "0491878012dfec46",
+                "21c345c3122b46a7"
+            ]
+        ]
+    },
+    {
+        "id": "a13ed583ef07721e",
+        "type": "function",
+        "z": "657db6e74f312162",
+        "name": "Extract current humidity",
+        "func": "// Extract the last object from msg.payload.body\nvar keys = Object.keys(msg.payload.body);\nvar lastKey = keys[keys.length - 1];\nvar lastObject = Math.round(msg.payload.body[lastKey]);\nglobal.set(\"Current_Room_Humidity\", lastObject); \n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "494179d2c8f8a80f",
+        "type": "function",
+        "z": "657db6e74f312162",
+        "name": "Extract current carbon dioxide levels",
+        "func": "// Extract the last object from msg.payload.body\nvar keys = Object.keys(msg.payload.body);\nvar lastKey = keys[keys.length - 1];\nvar lastObject = Math.round(msg.payload.body[lastKey]);\nglobal.set(\"Current_Room_Co2_levels\", lastObject); \n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7729b3da384703a2",
+        "type": "comment",
+        "z": "d8ceab4633dc998b",
+        "name": "The token has a two hour life time, seems getting a new token before that time doesn't help. So get a token exactly every 2 hours",
+        "info": "",
+        "x": 550,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "32fad78a40138e57",
+        "type": "function",
+        "z": "d8ceab4633dc998b",
+        "name": "Extract Token from Response",
+        "func": "if (!msg.payload.hasOwnProperty(\"result\")){\n    node.warn(\"failed timed access token reqest\");\n    node.warn(msg);\n    return;\n}\n\nvar data = msg.payload;\n\nvar access = data.result.access_token;\nvar refresh = data.result.refresh_token;\nvar expire = data.result.expire_time;\nglobal.set(\"tuya_expire\",expire);\nvar creds ={\n \"access_token\" : access,\n \"refresh_token\" : refresh\n}\nglobal.set(\"tuya\", creds); \nmsg.payload = data.result;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 100,
+        "wires": [
+            [
+                "c7fabb82b12490ce"
+            ]
+        ]
+    },
+    {
+        "id": "a7e90ae33fccfe8a",
+        "type": "function",
+        "z": "d8ceab4633dc998b",
+        "name": "SetTuyaDetails",
+        "func": "global.set(\"tuya_secret_key\", \"b5c938088f72413d8ef147599a633659\");\nglobal.set(\"tuya_client_id\", \"dfxhjn3ekg544qausfsx\");\nglobal.set(\"tuya_device_id\", \"bfa96f6e6fc391e72faovq\");\nmsg.secretKey=global.get(\"tuya_secret_key\");\nmsg.clientKey  = global.get(\"tuya_client_id\");\n//msg.host = \"https://openapi.tuyaeu.com\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "2477b537bc315f6b"
+            ]
+        ]
+    },
+    {
+        "id": "809692721359af38",
+        "type": "function",
+        "z": "d8ceab4633dc998b",
+        "name": "Turn On the Air conditioner",
+        "func": "var creds = global.get(\"tuya\");\nmsg.accessKey = creds.access_token;\nmsg.secretKey = global.get(\"tuya_secret_key\");\nmsg.clientKey = global.get(\"tuya_client_id\");\nvar device_id = global.get(\"tuya_device_id\");\nmsg.url = \"/v1.0/devices/\" + device_id + \"/commands\";\nmsg.body = JSON.stringify({\n  \"commands\": [\n    {\n      \"code\": \"switch\",\n      \"value\": true\n    }\n  ]\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1280,
+        "y": 220,
+        "wires": [
+            [
+                "1648b806f7e4a79f",
+                "de3b49bf24d5bd72"
+            ]
+        ]
+    },
+    {
+        "id": "2477b537bc315f6b",
+        "type": "tuya_auth",
+        "z": "d8ceab4633dc998b",
+        "name": "",
+        "topic": "",
+        "host": "https://openapi.tuyaeu.com",
+        "x": 580,
+        "y": 100,
+        "wires": [
+            [
+                "32fad78a40138e57"
+            ]
+        ]
+    },
+    {
+        "id": "1648b806f7e4a79f",
+        "type": "tuya_post",
+        "z": "d8ceab4633dc998b",
+        "name": "",
+        "topic": "",
+        "body": "",
+        "url": "",
+        "host": "https://openapi.tuyaeu.com",
+        "x": 1520,
+        "y": 180,
+        "wires": [
+            [
+                "8f39b22ebd7c86e0"
+            ]
+        ]
+    },
+    {
+        "id": "c7fabb82b12490ce",
+        "type": "function",
+        "z": "d8ceab4633dc998b",
+        "name": "Prepare payload to get AC status ",
+        "func": "var creds = global.get(\"tuya\");\nmsg.accessKey = creds.access_token;\nmsg.secretKey = global.get(\"tuya_secret_key\");\nmsg.clientKey = global.get(\"tuya_client_id\");\nvar device_id = global.get(\"tuya_device_id\");\nmsg.url = \"/v1.0/devices/\" + device_id;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 160,
+        "wires": [
+            [
+                "79ea7365e72b078d"
+            ]
+        ]
+    },
+    {
+        "id": "79ea7365e72b078d",
+        "type": "tuya_get",
+        "z": "d8ceab4633dc998b",
+        "name": "",
+        "topic": "",
+        "host": "https://openapi.tuyaeu.com",
+        "x": 700,
+        "y": 160,
+        "wires": [
+            [
+                "cba43bfcf3f5058d",
+                "b632ace8d3c932da"
+            ]
+        ]
+    },
+    {
+        "id": "056b0ac22619e8ec",
+        "type": "inject",
+        "z": "d8ceab4633dc998b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 60,
+        "wires": [
+            [
+                "a7e90ae33fccfe8a"
+            ]
+        ]
+    },
+    {
+        "id": "cba43bfcf3f5058d",
+        "type": "function",
+        "z": "d8ceab4633dc998b",
+        "name": "Extracting mode",
+        "func": "var ac_on=msg.payload.result.status[0];\nmsg=msg.payload.result.status[3];\nvar value = msg.value;\nglobal.set(\"fan_current_mode\", value); \nglobal.set(\"fan_current_switch\",ac_on.value);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 160,
+        "wires": [
+            [
+                "39599b5cf092e8f7",
+                "050784d2fcada843"
+            ]
+        ]
+    },
+    {
+        "id": "39599b5cf092e8f7",
+        "type": "link out",
+        "z": "d8ceab4633dc998b",
+        "name": "Link-Out fan mode fetched Flow 3",
+        "mode": "link",
+        "links": [
+            "388ef0860c77a006"
+        ],
+        "x": 1055,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a43ffc1a1f3bdd37",
+        "type": "websocket in",
+        "z": "d8ceab4633dc998b",
+        "name": "",
+        "server": "b4afa46adbd8ace6",
+        "client": "",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "a7e90ae33fccfe8a",
+                "ba22c23f8edd57d4"
+            ]
+        ]
+    },
+    {
+        "id": "ba22c23f8edd57d4",
+        "type": "debug",
+        "z": "d8ceab4633dc998b",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 200,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d5558ccd129363b9",
+        "type": "websocket in",
+        "z": "d8ceab4633dc998b",
+        "name": "",
+        "server": "a7f83b6b05fd9361",
+        "client": "",
+        "x": 110,
+        "y": 320,
+        "wires": [
+            [
+                "0e55503395006567"
+            ]
+        ]
+    },
+    {
+        "id": "a6d29d169e7ca814",
+        "type": "debug",
+        "z": "d8ceab4633dc998b",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "7b7c8798d598e308",
+        "type": "function",
+        "z": "d8ceab4633dc998b",
+        "name": "Data retreiving from ESP32",
+        "func": "// Parse the payload JSON string to an object\nvar data = JSON.parse(msg.payload);\n\n// Extract values from the parsed object\nvar DeviceID = data.DeviceID;\nvar Updated_User_Temp = data.Updated_User_Temp;\nvar Is_Temp_Updated = data.Is_Temp_Updated;\nvar SetStatusConditioner = data.SetStatusConditioner;\nvar Is_Mode_Updated = data.Is_Mode_Updated;\nvar Is_Turn_Off = data.Is_Turn_Off;\nvar Is_Heat_Required = data.Is_Heat_Required;\nvar Is_Fan_Speed_Set=data.Is_Fan_Speed_Set;\nvar Fan_Speed_Set=data.Fan_Speed_Set;\n// Set global variables with extracted values\nglobal.set(\"DeviceID\", DeviceID);\nglobal.set(\"Updated_User_Temp\", Updated_User_Temp);\nglobal.set(\"Is_Temp_Updated\", Is_Temp_Updated);\nglobal.set(\"SetStatusConditioner\", SetStatusConditioner);\nglobal.set(\"Is_Mode_Updated\", Is_Mode_Updated);\nglobal.set(\"Is_Turn_Off\", Is_Turn_Off); \nglobal.set(\"Is_Heat_Required\", Is_Heat_Required); \nglobal.set(\"Is_Fan_Speed_Set\", Is_Fan_Speed_Set); \nglobal.set(\"Fan_Speed_Set\", Fan_Speed_Set); \n// Return the msg object with the assigned global variables\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 440,
+        "wires": [
+            [
+                "4235f4b72cee213d",
+                "f524470902e754e2"
+            ]
+        ]
+    },
+    {
+        "id": "f524470902e754e2",
+        "type": "function",
+        "z": "d8ceab4633dc998b",
+        "name": "Give command to the Air conditioner",
+        "func": "var creds = global.get(\"tuya\");\nmsg.accessKey = creds.access_token;\nmsg.secretKey = global.get(\"tuya_secret_key\");\nmsg.clientKey = global.get(\"tuya_client_id\");\nvar device_id = global.get(\"tuya_device_id\");\nvar final_mode=\"\";\nmsg.payload={};\nvar Is_Turn_Off_local=global.get(\"Is_Turn_Off\");\nvar Is_Temp_Updated_local=global.get(\"Is_Temp_Updated\");\nvar Is_Mode_Updated_local=global.get(\"Is_Mode_Updated\");\nvar Updated_User_Temp_local=global.get(\"Updated_User_Temp\");\nvar SetStatusConditioner_local=global.get(\"SetStatusConditioner\")\nvar Is_Heat_Required_local=global.get(\"Is_Heat_Required\"); \nvar Is_Fan_Speed_Set_local=global.get(\"Is_Fan_Speed_Set\"); \nvar Fan_Speed_Set_local = global.get(\"Fan_Speed_Set\");\nmsg.url = \"/v1.0/devices/\" + device_id + \"/commands\";\nif(Is_Turn_Off_local)\n{\nmsg.body = JSON.stringify({\n  \"commands\": [\n    {\n      \"code\": \"switch\",\n      \"value\": false\n    }\n  ]\n});\n}\nelse{\n  if(Is_Temp_Updated_local && Updated_User_Temp_local!=0)\n  {\n    msg.body = JSON.stringify({\n  \"commands\": [\n     {\n      \"code\": \"temp_set\",\n      \"value\": Updated_User_Temp_local\n    }\n  ]\n});\n  }\n  else if (Is_Mode_Updated_local && SetStatusConditioner_local!=0)\n  {\n    var desired_set_mode = SetStatusConditioner_local;\n    if(desired_set_mode==1)\n    {\n       final_mode =\"Cool\";\n    }\n    else if (desired_set_mode == 2)\n    {\n      final_mode = \"Dry\";\n    }\n    else if (desired_set_mode == 3) {\n      final_mode = \"Fan\";\n    }\n    else{\n      final_mode = \"Heat\";\n    }\n    msg.body = JSON.stringify({\n  \"commands\": [\n     {\n      \"code\": \"mode\",\n      \"value\": final_mode\n    }\n  ]\n});\n  }\n  else if(Is_Fan_Speed_Set_local)\n  {\n        msg.body = JSON.stringify({\n  \"commands\": [\n     {\n      \"code\": \"fan_speed_enum\",\n      \"value\": Fan_Speed_Set_local\n    }\n  ]\n});\n  }\n\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 500,
+        "wires": [
+            [
+                "fbef6bdb1c6f20ec",
+                "668042384d639912",
+                "b431b9dca04977cb"
+            ]
+        ]
+    },
+    {
+        "id": "fbef6bdb1c6f20ec",
+        "type": "tuya_post",
+        "z": "d8ceab4633dc998b",
+        "name": "",
+        "topic": "",
+        "body": "",
+        "url": "",
+        "host": "https://openapi.tuyaeu.com",
+        "x": 780,
+        "y": 480,
+        "wires": [
+            [
+                "a6d29d169e7ca814"
+            ]
+        ]
+    },
+    {
+        "id": "0e55503395006567",
+        "type": "switch",
+        "z": "d8ceab4633dc998b",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "istype",
+                "v": "json",
+                "vt": "json"
+            },
+            {
+                "t": "istype",
+                "v": "string",
+                "vt": "string"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 210,
+        "y": 380,
+        "wires": [
+            [
+                "7b7c8798d598e308"
+            ],
+            [
+                "75dcf33c69781d41"
+            ]
+        ]
+    },
+    {
+        "id": "75dcf33c69781d41",
+        "type": "debug",
+        "z": "d8ceab4633dc998b",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "8f39b22ebd7c86e0",
+        "type": "debug",
+        "z": "d8ceab4633dc998b",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1540,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "050784d2fcada843",
+        "type": "function",
+        "z": "d8ceab4633dc998b",
+        "name": "Condition check to switch on AC",
+        "func": "msg.payload=global.get(\"fan_current_switch\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 240,
+        "wires": [
+            [
+                "59cab3fca5a86d8d"
+            ]
+        ]
+    },
+    {
+        "id": "59cab3fca5a86d8d",
+        "type": "switch",
+        "z": "d8ceab4633dc998b",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1090,
+        "y": 220,
+        "wires": [
+            [
+                "809692721359af38"
+            ]
+        ]
+    },
+    {
+        "id": "67115d138dd92229",
+        "type": "switch",
+        "z": "d8ceab4633dc998b",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 810,
+        "y": 600,
+        "wires": [
+            [
+                "2f525d503d585d8c"
+            ]
+        ]
+    },
+    {
+        "id": "668042384d639912",
+        "type": "function",
+        "z": "d8ceab4633dc998b",
+        "name": "Check if Heat or Cool mode is required",
+        "func": "var Is_Turn_Off_local=global.get(\"Is_Turn_Off\");\nvar Is_Temp_Updated_local=global.get(\"Is_Temp_Updated\");\nif(!Is_Turn_Off_local && Is_Temp_Updated_local)\n{\n    msg.payload=true;\n}\nelse{\n    msg.payload=false;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 600,
+        "wires": [
+            [
+                "67115d138dd92229"
+            ]
+        ]
+    },
+    {
+        "id": "2f525d503d585d8c",
+        "type": "function",
+        "z": "d8ceab4633dc998b",
+        "name": "Set mode of the AC to heat or cool when temp set",
+        "func": "var creds = global.get(\"tuya\");\nmsg.accessKey = creds.access_token;\nmsg.secretKey = global.get(\"tuya_secret_key\");\nmsg.clientKey = global.get(\"tuya_client_id\");\nvar device_id = global.get(\"tuya_device_id\");\nmsg.url = \"/v1.0/devices/\" + device_id + \"/commands\";\nvar Is_Heat_Required= global.get(\"Is_Heat_Required\");\nif(Is_Heat_Required)\n{\nmsg.body = JSON.stringify({\n  \"commands\": [\n     {\n      \"code\": \"mode\",\n      \"value\": \"Heat\"\n    }\n  ]\n});\n}\nelse{\n  msg.body = JSON.stringify({\n  \"commands\": [\n     {\n      \"code\": \"mode\",\n      \"value\": \"Cool\"\n    }\n  ]\n});\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 660,
+        "wires": [
+            [
+                "fe6c0b6a059d7842"
+            ]
+        ]
+    },
+    {
+        "id": "fe6c0b6a059d7842",
+        "type": "delay",
+        "z": "d8ceab4633dc998b",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 980,
+        "y": 720,
+        "wires": [
+            [
+                "439f60bc4188e4e4"
+            ]
+        ]
+    },
+    {
+        "id": "439f60bc4188e4e4",
+        "type": "tuya_post",
+        "z": "d8ceab4633dc998b",
+        "name": "",
+        "topic": "",
+        "body": "",
+        "url": "",
+        "host": "https://openapi.tuyaeu.com",
+        "x": 1140,
+        "y": 720,
+        "wires": [
+            [
+                "65c1f3d41ab79179"
+            ]
+        ]
+    },
+    {
+        "id": "65c1f3d41ab79179",
+        "type": "debug",
+        "z": "d8ceab4633dc998b",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1320,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "4235f4b72cee213d",
+        "type": "function",
+        "z": "d8ceab4633dc998b",
+        "name": "Table data display",
+        "func": "var Is_Turn_Off_local = global.get(\"Is_Turn_Off\");\nvar Is_Temp_Updated_local = global.get(\"Is_Temp_Updated\");\nvar Show_temperature_Updated=Is_Temp_Updated_local? \"YES\" : \"NO\";\nvar Is_Mode_Updated_local = global.get(\"Is_Mode_Updated\");\nvar Show_Mode_Updated=Is_Mode_Updated_local? \"YES\" : \"NO\";\nvar Updated_User_Temp_local = global.get(\"Updated_User_Temp\");\nvar Show_temp_local=Is_Temp_Updated_local? Updated_User_Temp_local : \"--\";\nvar SetStatusConditioner_local = global.get(\"SetStatusConditioner\");\nvar DeviceId_local = global.get(\"DeviceID\");\nvar Device_switch_status = global.get(\"fan_current_switch\");\nvar SwitchOnUpdateTable_local=global.get(\"SwitchOnUpdateTable\");\nvar On_Off_string=\"\";\nif (SwitchOnUpdateTable_local==\"Yes\")\n{\n     On_Off_string= \"ON\";\n}\nelse\n{\n     On_Off_string = !Is_Turn_Off_local ? \"ON\" : \"OFF\"; \n}\nglobal.set(\"SwitchOnUpdateTable\", \"No\");\nvar Mode_Set = SetStatusConditioner_local == 3 ? \"Fan\" : \"Dry\";\nvar Mode_Set_Show=Is_Mode_Updated_local? Mode_Set : \"--\";\nvar Current_Temperature=global.get(\"Current_Room_Temp\");\nvar Current_Humidity=global.get(\"Current_Room_Humidity\");\nvar Current_Co2_level=global.get(\"Current_Room_Co2_levels\");\nvar currentDate = new Date();\n\n// Get the current time in EEST time zone\nvar options = { timeZone: 'Europe/Helsinki' }; // 'Europe/Helsinki' represents the EEST time zone\nvar currentDateTimeEEST = currentDate.toLocaleString('en-US', options);\n\n// Retrieve the existing table data or initialize an empty array if it doesn't exist\nvar tableData = global.get(\"savedInfo\") || [];\n\n// Construct the new row object\nvar newRow = {\n    \"Date and time\": currentDateTimeEEST,\n    \"Device ID\": DeviceId_local,\n    \"AC ON/OFF\": On_Off_string,\n    \"Temperature changed\": Show_temperature_Updated,\n    \"Temperature set\": Show_temp_local,\n    \"Mode updated\": Show_Mode_Updated,\n    \"Mode set\": Mode_Set_Show,\n    \"Room Temperature(°C)\" : Current_Temperature,\n    \"Room Humidity levels(%)\" : Current_Humidity,\n    \"Room CO2 levels(ppm)\": Current_Co2_level\n};\n\n// Insert the new row at the beginning of the table data array\ntableData.unshift(newRow);\n\n// Set the updated table data to the global context\nglobal.set(\"savedInfo\", tableData);\n\n// Check if 7 days have passed since the last table data reset\nvar lastResetTime = global.get(\"lastResetTime\") || 0;\nvar currentTime = currentDate.getTime();\nvar oneWeekInMillis = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds\n\nif (currentTime - lastResetTime >= oneWeekInMillis) {\n    // Clear the table data\n    tableData = [];\n    // Update the last reset time\n    global.set(\"lastResetTime\", currentTime);\n}\n\n// Assign the table data to msg.payload for display in the UI table\n//   tableData = [];\nmsg.payload = tableData;\n\n// Return the modified message object\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 440,
+        "wires": [
+            [
+                "a902263125b46a79",
+                "809e84a29d18ad18"
+            ]
+        ]
+    },
+    {
+        "id": "f90428649d2f0d01",
+        "type": "ui_table",
+        "z": "d8ceab4633dc998b",
+        "group": "91ce125b289e8ecf",
+        "name": "",
+        "order": 0,
+        "width": "20",
+        "height": "12",
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 950,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "a902263125b46a79",
+        "type": "debug",
+        "z": "d8ceab4633dc998b",
+        "name": "debug 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 220,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "f67cf66b2d7cd508",
+        "type": "comment",
+        "z": "d8ceab4633dc998b",
+        "name": "Url for dashboard",
+        "info": "http://192.168.1.101:1880/ui/#!/0?socketid=okKT4A7NZHTNyJ_TAAAh",
+        "x": 800,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "809e84a29d18ad18",
+        "type": "ui_template",
+        "z": "d8ceab4633dc998b",
+        "group": "91ce125b289e8ecf",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    .my-table {\n        width: 100%;\n        height: 400px;\n        /* Adjust height as needed */\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 800,
+        "y": 440,
+        "wires": [
+            [
+                "f90428649d2f0d01"
+            ]
+        ]
+    },
+    {
+        "id": "b632ace8d3c932da",
+        "type": "debug",
+        "z": "d8ceab4633dc998b",
+        "name": "debug 16",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "de3b49bf24d5bd72",
+        "type": "link out",
+        "z": "d8ceab4633dc998b",
+        "name": "Link out update table",
+        "mode": "link",
+        "links": [
+            "82fb26335ae1ac48"
+        ],
+        "x": 1405,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "82fb26335ae1ac48",
+        "type": "link in",
+        "z": "d8ceab4633dc998b",
+        "name": "Link In update table",
+        "links": [
+            "de3b49bf24d5bd72"
+        ],
+        "x": 395,
+        "y": 380,
+        "wires": [
+            [
+                "b73f3a4202da0e0b"
+            ]
+        ]
+    },
+    {
+        "id": "b431b9dca04977cb",
+        "type": "debug",
+        "z": "d8ceab4633dc998b",
+        "name": "debug 17",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "body",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "b73f3a4202da0e0b",
+        "type": "function",
+        "z": "d8ceab4633dc998b",
+        "name": "Switch on update in table",
+        "func": "global.set(\"SwitchOnUpdateTable\", \"Yes\"); \nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 380,
+        "wires": [
+            [
+                "4235f4b72cee213d"
+            ]
+        ]
+    }
+]

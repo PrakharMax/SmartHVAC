@@ -1,0 +1,87 @@
+ssh prakashp@192.168.1.101
+username : prakashp
+password : prakashp
+
+Once Node-RED has started, point a browser at http://192.168.1.101:1880
+On Pi Node-RED works better with the Firefox or Chrome browser
+
+Use   node-red-stop                          to stop Node-RED
+Use   node-red-start                         to start Node-RED again
+Use   node-red-log                           to view the recent log output
+Use   sudo systemctl enable nodered.service  to autostart Node-RED at every boot
+Use   sudo systemctl disable nodered.service to disable autostart on boot
+
+
+
+
+NetAtmo :
+
+Client ID:65ccba5a2ed0baeee508f930
+Client Secret ID: 52idRBOmHG9bcfgofvVKL5j0Vhi5EC9g
+
+
+
+{
+"grant_type": "refresh_token",
+"refresh_token": "65c0d9f962b5717e320bb691|95d440174a6c6df20cbaa3b7a85a4c2a", 
+"client_id": "65ccba5a2ed0baeee508f930",
+"client_secret": "52idRBOmHG9bcfgofvVKL5j0Vhi5EC9g"
+}
+
+msg.headers={
+'Content-Type' : 'application/x-www-form-urlencoded'
+};
+
+msg.payload={
+"grant_type": "refresh_token",
+"refresh_token": '${refreshToken}', 
+"client_id": "65ccba5a2ed0baeee508f930",
+"client_secret": "52idRBOmHG9bcfgofvVKL5j0Vhi5EC9g"
+}
+return msg
+
+
+
+Function
+var device_id="70:ee:50:9c:fc:ba";
+var scale="max";
+var type="temperature";
+var date_end = global.get("CurrentTimeStamp").toString();
+var optimize="false";
+var real_time="true";
+var url = "https://api.netatmo.com/api/getmeasure?device_id=" + device_id + "&scale=" + scale + "&type=" +type 
+    + "&date_end=" + date_end + "&optimize=" + optimize + "&real_time=" +real_time;
+msg.url=url;
+msg.headers = {
+    "Authorization": "Bearer " + msg.payload.access_token
+};
+return msg;
+
+
+
+[
+  {
+    "code": "switch",
+    "value": true
+  },
+  {
+    "code": "temp_set",
+    "value": 23
+  },
+  {
+    "code": "mode",
+    "value": "Cool"
+  },
+  {
+    "code": "fan_speed_enum",
+    "value": "Low"
+  },
+  {
+    "code": "windshake",
+    "value": "ON"
+  },
+  {
+    "code": "Sleep",
+    "value": false
+  }
+]
